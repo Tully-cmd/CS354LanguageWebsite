@@ -64,6 +64,29 @@
     border: 2px solid black;
   }
 
+  table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #006699;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
 
   code {
     font-family: 'Courier New', Courier, monospace;
@@ -158,6 +181,53 @@ rl.question('What is your name? ', function(name) {
   console.log('Hello World');
 </code></pre></p>
 </details></p>
+</details>
+<details>
+  <! -- Table javaScript dropdown -->
+  <summary>Table for similar languages</summary>
+  <h2 id="table">Results</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Similarities to JavaScript</th>
+      <th>Differences from JavaScript</th>
+      <th>Advantages of JavaScript</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Python</td>
+      <td>Interpreted language</td>
+      <td>Significant whitespace syntax</td>
+      <td>Widely used for web development; easier to learn than many other languages</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Object-oriented programming, syntax structure</td>
+      <td>Compiled language, stricter syntax</td>
+      <td>Designed for client-side scripting, very versatile, used for both front-end and back-end development</td>
+    </tr>
+    <tr>
+      <td>Ruby</td>
+      <td>Dynamically-typed language, syntax structure</td>
+      <td>Limited use in enterprise-level applications</td>
+      <td>Lightweight, easy to learn, often used for web development</td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td>Server-side scripting, syntax structure</td>
+      <td>Not ideal for general-purpose programming</td>
+      <td>High-speed execution, robust functionality for web development</td>
+    </tr>
+    <tr>
+      <td>TypeScript</td>
+      <td>Superset of JavaScript, static typing</td>
+      <td>Requires transpiling to JavaScript</td>
+      <td>Makes it easier to find and fix errors during development</td>
+    </tr>
+    </tbody>
+  </table>
 </details>
 
 <! -- Resource for learning javaScript dropdown -->
