@@ -1,6 +1,302 @@
+<!DOCTYPE html>
+<html>
 <head>
-<title>finches</title>
+  <meta charset="UTF-8">
+  <title>JavaScript Introduction</title>
 </head>
 <body>
-finches
+<style>
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  ul {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  pre {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: auto;
+    padding: 20px;
+  }
+  summary{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  img {
+    display: block;
+    margin: auto;
+    width: 30%;
+    height: 30%;
+    border: 2px solid black;
+  }
+
+  table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #006699;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  code {
+    font-family: 'Courier New', Courier, monospace;
+  }
+</style>
+
+<h1>JavaScript Most Common icon</h1> <! -- this is the image for javascript icon -->
+<img src="data:image/png;base64,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" alt="JavaScript Image">
+
+<! -- Intro to javascript dropdown -->
+<details>
+  <summary>Introduction to JavaScript</summary>
+  <h2 id="intro-to-javascript">JavaScript Introduction</h2>
+  <p><p>JavaScript is a programming language that was created in 1995 by Brendan Eich while he was working at Netscape Communications Corporation. Originally called Mocha, then renamed to LiveScript, it was finally released as JavaScript in 1995, around the same time as the release of Netscape Navigator 2.0.</p>
+  <p>The language was designed to be used in web browsers to add interactivity to static web pages, allowing developers to create dynamic content and respond to user interactions. Over time, JavaScript has evolved to become a versatile language that can be used not only in web browsers, but also on servers, mobile devices, and even in desktop applications.</p>
+  <p>Today, JavaScript is one of the most popular programming languages in the world, and it is supported by all modern web browsers. It is used to create complex web applications, single-page applications, and mobile applications. JavaScript is also widely used in back-end development with frameworks like Node.js.</p>
+  <h2>What is JavaScript?</h2>
+  <p>JavaScript is a high-level, dynamic, and versatile programming language used to create interactive and dynamic websites. It was originally created to be used in web browsers, but today it is also used on servers, mobile devices, and in desktop applications.</p>
+  <p>JavaScript is a client-side scripting language, which means that it runs in the browser on the client-side of a web application. It is often used to create interactive features like form validation, animations, and dynamic content updates.</p>
+  <p>JavaScript is also an object-oriented language, which means that it allows developers to create and manipulate objects, which can contain properties and methods. It has a large number of built-in objects and functions that make it easier for developers to perform common tasks.</p>
+  <h2>Learning JavaScript can be beneficial for many reasons, including:</h2>
+  <ul>
+    <li>Creating dynamic and interactive websites: JavaScript is essential for creating dynamic and interactive web pages, which can enhance the user experience and make websites more engaging and interesting.</li>
+    <li>Career opportunities: JavaScript is one of the most widely-used programming languages in the world, and there is a high demand for developers who are proficient in it. Learning JavaScript can open up many career opportunities in web development, mobile development, and other areas.</li>
+    <li>Versatility: JavaScript is a versatile language that can be used not only in web development but also in server-side development, mobile app development, and even in desktop applications.</li>
+    <li>Large community and resources: There is a large and active community of developers who use JavaScript, which means that there are many resources available for learning and troubleshooting. This can make it easier to learn and develop your skills.</li>
+    <li>Frameworks and libraries: There are many frameworks and libraries available for JavaScript, which can help you build complex web applications more quickly and efficiently. These tools can also help you stay up to date with the latest trends and best practices in web development.</li>
+    <li>Compatibility: JavaScript is supported by all modern web browsers, which means that it is a reliable and consistent language for web development.</li>
+  </ul></p>
+</details>
+
+<! --how to download dropdown -->
+<details>
+  <summary>Available Translators and Installation Instructions</summary>
+  <h2 id="How to download javaScript">Download javaScript</h2>
+  <p><ul>
+  <li>JavaScript is a programming language that is typically used in web development, so it doesn't require any installation. However, if you want to run JavaScript programs outside of a web browser, you will need to install Node.js on your computer.</li>
+  <li>Here are the steps to install Node.js:
+    <ol>
+      <li>Go to the official Node.js website: https://nodejs.org/</li>
+      <li>Download the appropriate installation package for your operating system.</li>
+      <li>Run the installation package and follow the prompts to complete the installation.</li>
+      <li>Verify that Node.js is installed correctly by opening a command prompt (on Windows) or terminal (on Mac or Linux) and typing "node -v" (without the quotes) and pressing Enter. You should see the version number of Node.js printed to the console.</li>
+    </ol>
+  </li>
+  <li>Once Node.js is installed on your computer, you can create and run JavaScript programs using a text editor and the Node.js runtime environment. You can also use Node.js to install and manage packages and libraries for your JavaScript projects using the Node Package Manager (NPM).</li>
+<h2>Available Translators</h2>
+  <p>JavaScript is a client-side language, which means it runs on the browser. Therefore, you don't need to install any special software or compilers to run JavaScript code. You just need a web browser like Chrome, Firefox, or Safari. However, if you want to develop more complex JavaScript applications, you may need a text editor like Visual Studio Code or Sublime Text. Both of these editors have built-in JavaScript support, making it easy to write, test, and debug your code.</p>
+</ul></p>
+</details>
+
+<! -- code examples dropdown -->
+<details>
+  <summary>Code Examples</summary>
+  <h2 id="Examples"></h2>
+  <p><details>
+  <! -- Scanner code examples dropdown -->
+  <summary>Scanner Example</summary>
+  <h2 id="Scanner">Code</h2>
+  <p><pre><code>
+  // create a new Scanner object to read user input
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// prompt the user for their name and age
+rl.question('What is your name? ', function(name) {
+  rl.question('What is your age? ', function(age) {
+    // display the user's name and age
+    console.log(`Hello ${name}, you are ${age} years old.`);
+    rl.close();
+  });
+});
+</code></pre></p>
+  <p>This code prompts the user to enter their name and age in the command line, and then displays a message with their name and age in the console.
+
+    It uses the Node.js module readline to create an interface for reading user input from the command line. The rl.question method is used to prompt the user for their name and age, and the responses are passed as arguments to the callback function. The console.log method is then used to display the message with the user's name and age in the console.
+
+    Finally, the rl.close method is called to close the interface and allow the program to exit.</p><h2>Differences between JavaScript scanner and java </h2>
+  <p>While JavaScript is primarily used for client-side web development, Java is a general-purpose programming language that can be used for a wide range of applications, including server-side web development, mobile app development, and desktop applications. Additionally, JavaScript is a dynamically typed language, meaning that variable types are inferred at runtime, while Java is a statically typed language, meaning that variable types must be declared at compile time.
+
+    In summary, JavaScript is a programming language used for web development, while Java's Scanner is a
+    tool used in the Java programming language for reading input.</p>
+</details></p>
+  <! -- Ending of Scanner code examples dropdown -->
+<details>
+  <! -- Hello world example dropdown -->
+  <summary>Hello World Example</summary>
+  <h2 id="HelloWorld">Code</h2>
+  <p><pre><code>
+  // the hello world program
+  console.log('Hello World');
+</code></pre></p>
+</details></p>
+</details>
+<details>
+  <! -- Table javaScript dropdown -->
+  <summary>Table for similar languages</summary>
+  <h2 id="table">Results</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Similarities to JavaScript</th>
+      <th>Differences from JavaScript</th>
+      <th>Advantages of JavaScript</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Python</td>
+      <td>Interpreted language</td>
+      <td>Significant whitespace syntax</td>
+      <td>Widely used for web development; easier to learn than many other languages</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Object-oriented programming, syntax structure</td>
+      <td>Compiled language, stricter syntax</td>
+      <td>Designed for client-side scripting, very versatile, used for both front-end and back-end development</td>
+    </tr>
+    <tr>
+      <td>Ruby</td>
+      <td>Dynamically-typed language, syntax structure</td>
+      <td>Limited use in enterprise-level applications</td>
+      <td>Lightweight, easy to learn, often used for web development</td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td>Server-side scripting, syntax structure</td>
+      <td>Not ideal for general-purpose programming</td>
+      <td>High-speed execution, robust functionality for web development</td>
+    </tr>
+    <tr>
+      <td>TypeScript</td>
+      <td>Superset of JavaScript, static typing</td>
+      <td>Requires transpiling to JavaScript</td>
+      <td>Makes it easier to find and fix errors during development</td>
+    </tr>
+    </tbody>
+  </table>
+</details>
+
+<details>
+  <! -- Table 2 javaScript dropdown -->
+  <summary>Tabular Comparison of Characteristics and Features</summary>
+  <h2 id="table 2">Results</h2>
+  <table>
+    <tr>
+      <th>Language</th>
+      <th>Paradigm</th>
+      <th>Typing</th>
+      <th>Platform</th>
+      <th>Popular Use Cases</th>
+    </tr>
+    <tr>
+      <td>JavaScript</td>
+      <td>Object-Oriented, Functional</td>
+      <td>Dynamic</td>
+      <td>Web</td>
+      <td>Client-side scripting, web development, web applications</td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td>Object-Oriented, Functional</td>
+      <td>Dynamic</td>
+      <td>Cross-Platform</td>
+      <td>Data analysis, machine learning, automation</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Object-Oriented</td>
+      <td>Static</td>
+      <td>Cross-Platform</td>
+      <td>Enterprise applications, Android development, web services</td>
+    </tr>
+    <tr>
+      <td>C++</td>
+      <td>Object-Oriented</td>
+      <td>Static</td>
+      <td>Cross-Platform</td>
+      <td>Game development, system programming, scientific computing</td>
+    </tr>
+    <tr>
+      <td>Ruby</td>
+      <td>Object-Oriented</td>
+      <td>Dynamic</td>
+      <td>Cross-Platform</td>
+      <td>Web development, web applications, automation</td>
+    </tr>
+  </table>
+</details>
+
+
+
+<! -- Resource for learning javaScript dropdown -->
+<details>
+  <summary>Resources for Learning JavaScript</summary>
+  <h2 id="ex">Resources</h2>
+  <p><p>JavaScript is a programming language that is primarily used for web development. It is executed within a web browser and can interact with the HTML and CSS of a web page to create dynamic and responsive user interfaces.</p>
+  <p>To learn more about JavaScript, check out the following resources:</p>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a></li>
+    <li><a href="https://www.w3schools.com/js/">W3Schools JavaScript Tutorials</a></li>
+    <li><a href="https://www.codecademy.com/learn/introduction-to-javascript">Codecademy Introduction to JavaScript Course</a></li>
+    <li><a href="https://javascript.info/manuals-specifications">Manuals and Specifications</a></li>
+    <li><a href="https://math.chapman.edu/~jipsen/js/">Online Javascript interpreter</a></li>
+  </ul></p>
+</details>
 </body>
+</html>
