@@ -221,7 +221,7 @@ rl.question('What is your name? ', function(name) {
             if(req.readyState == 4 && req.status == 200){
                 var result = JSON.parse(req.responseText);
                 var suggestions = result['suggestions']
-                document.getElementById("results").innerHTML = suggestions.map(item => `<li>${item}</li>`).join('');
+                document.getElementById("results").innerHTML = suggestions.map(item => `&lt;li&gt ${item} &lt;/li&gt;`).join('');
             }
         }
     };    
