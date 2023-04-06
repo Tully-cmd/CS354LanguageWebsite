@@ -196,7 +196,58 @@ rl.question('What is your name? ', function(name) {
   console.log('Hello World');
 </code></pre></p>
 </details></p>
+<details>
+  <! -- Spelling fix example dropdown -->
+  <summary> Spelling fix Example</summary>
+  <h2 id="jg">Code</h2>
+  <h4 id="jg"> The below code connects with a HTML file and it will suggest and generate words 
+    that the users typed in might want to use but spelled it incorrectly </h4>
+
+    <h5 id="script"> script.js file: </h5>
+    <p><pre><code>
+      window.onload = function() {
+        document.getElementById("submitBtn").addEventListener('click', myFunction)
+    }
+    
+    function myFunction() {
+        var input = document.getElementById("searchTerm").value;
+    
+        req = new XMLHttpRequest;
+    
+        req.open("GET", `https://cast.boisestate.edu/test/splchk.php?word=${input}&max=5`, true);
+        req.send();
+    
+        req.onreadystatechange = function() {
+            if(req.readyState == 4 && req.status == 200){
+                var result = JSON.parse(req.responseText);
+                var suggestions = result['suggestions']
+                document.getElementById("results").innerHTML = suggestions.map(item => `<li>${item}</li>`).join('');
+            }
+        }
+    };    
+    </code></pre></p>
+    
+    <h5 id="html"> From the above Javascript code, the HTML file will display this: </h5> 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="primaryDiv">
+            <input type="text" id="searchTerm" placeholder="Search Term">
+            <button id="submitBtn">Submit</button>
+            <p id="term"></p>
+            <ul id="results"></ul>
+        </div>
+    </body>
+    </html>
+
 </details>
+
+</details>
+
 <details>
   <! -- Table javaScript dropdown -->
   <summary>Table for similar languages</summary>
