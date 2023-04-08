@@ -273,6 +273,30 @@ rl.question('What is your name? ', function(name) {
 </details>
 
 <details>
+  <summary>Fetch Api Example</summary>
+  <h2 id="FetchAPI">Code</h2>
+  <script>
+    async function logData() {
+      const response = await fetch("http://api.myip.com");
+      const jsonData = await response.json();
+      console.log(jsonData);
+      document.getElementById("textAPI").innerText = jsonData;
+    }
+  </script>
+  <p><pre><code>
+
+    async function logData() {
+      const response = await fetch("https://api.myip.com");
+      const jsonData = await response.json();
+      console.log(jsonData);
+      document.getElementByID
+    }
+
+  </code></pre></p>
+  </details></p>
+</details>
+
+<details>
   <! -- Table javaScript dropdown -->
   <summary>Table for similar languages</summary>
   <h2 id="table">Results</h2>
