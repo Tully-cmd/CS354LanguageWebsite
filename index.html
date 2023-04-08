@@ -226,31 +226,6 @@ rl.question('What is your name? ', function(name) {
         }
     };    
     </code></pre></p>
-    <details>
-    <! -- Prime Number Checker example dropdown -->
-    <summary>Prime Number Checker Example</summary>
-    <h2 id="PrimeNumberChecker">Code</h2>
-    <p><pre><code>
-    // Prime Number Checker Example
-    console.log("Welcome to Prime Number Detector\n");
-    var num = prompt("Please Enter a Number to detect if the number is Prime: ");
-    var tracker = 0;
-    if (num == 2 || num == 3 || num == 5) {
-      console.log("This number is prime!");
-    } else {
-        for (let i = 2; i <= num / 2; i++) {
-          if (num % i == 0) {
-              tracker = tracker + 1;
-          }
-      }
-    if (tracker == 0) {
-        console.log("This number is prime!");
-    } else {
-        console.log("This number is not prime!");
-      }
-    }
-    </code></pre></p>
-    </details></p>
     
     <h5 id="html"> From the above Javascript code, the HTML file will display this: </h5> 
     <!DOCTYPE html>
@@ -268,9 +243,33 @@ rl.question('What is your name? ', function(name) {
         </div>
     </body>
     </html>
-
 </details>
 
+<details>
+  <! -- Prime Number Checker example dropdown -->
+  <summary>Prime Number Checker Example</summary>
+  <h2 id="PrimeNumberChecker">Code</h2>
+  <p><pre><code>
+  // Prime Number Checker Example
+  console.log("Welcome to Prime Number Detector\n");
+  var num = prompt("Please Enter a Number to detect if the number is Prime: ");
+  var tracker = 0;
+  if (num == 2 || num == 3 || num == 5) {
+    console.log("This number is prime!");
+  } else {
+      for (let i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+            tracker = tracker + 1;
+        }
+    }
+  if (tracker == 0) {
+      console.log("This number is prime!");
+  } else {
+      console.log("This number is not prime!");
+    }
+  }
+  </code></pre></p>
+  </details></p>
 </details>
 
 <details>
