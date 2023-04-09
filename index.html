@@ -272,6 +272,42 @@ rl.question('What is your name? ', function(name) {
   </details></p>
 </details>
 
+<! -- Image slideshow example -->
+<details>
+  <summary>Image Slideshow Example</summary>
+  <h2 id="ImageSlideshowExample">Code</h2>
+  <p><pre><code>
+    // Set the index of the currently displayed image
+    let currentImageIndex = 0;
+
+    // Get a reference to the slideshow container element
+    const slideshow = document.getElementById("slideshow");
+
+    // Get all the images in the slideshow
+    const images = slideshow.getElementsByTagName("img");
+
+    // Set the display style of all the images to "none" except for the first one
+    for (let i = 1; i < images.length; i++) {
+      images[i].style.display = "none";
+    }
+
+    // Function to change the displayed image
+    function changeImage() {
+      // Hide the current image
+      images[currentImageIndex].style.display = "none";
+
+      // Increment the index, looping back to 0 if it goes past the last image
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+
+      // Show the new image
+      images[currentImageIndex].style.display = "block";
+    }
+
+    // Call the changeImage function every 3 seconds to create a slideshow effect
+    setInterval(changeImage, 3000);
+  </code></pre></p>
+</details>
+
 <details>
   <summary>Fetch Api Example</summary>
   <h2 id="FetchAPI">Code</h2>
