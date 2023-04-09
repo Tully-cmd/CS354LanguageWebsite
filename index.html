@@ -270,30 +270,68 @@ rl.question('What is your name? ', function(name) {
   }
   </code></pre></p>
   </details></p>
-</details>
 
-<details>
-  <summary>Fetch Api Example</summary>
-  <h2 id="FetchAPI">Code</h2>
-  <script>
-    async function logData() {
-      const response = await fetch("http://api.myip.com");
-      const jsonData = await response.json();
-      console.log(jsonData);
-      document.getElementById("textAPI").innerText = jsonData;
-    }
-  </script>
-  <p><pre><code>
+  <details>
+    <summary>Fetch Api Example</summary>
+    <h2 id="FetchAPI">Code</h2>
+    <p><pre><code>
+  
+      async function logData() {
+        const response = await fetch("https://api.myip.com");
+        const jsonData = await response.json();
+        console.log(jsonData);
+        document.getElementByID
+      }
+  
+    </code></pre></p>
+    </details></p>
+  
+  <details>
+    <summary>Relative Ranks</summary>
+    <h2 id="Ranks">Code</h2>
+    
+    <p><pre><code>
+  
+      /**
+      * @param {number[]} score
+      * @return {string[]}
+      */
+     var findRelativeRanks = function(score) {
+         
+         let scoreRanks = score.slice();
+         scoreRanks.sort((a,b)=>a-b).reverse();
+         let returnArr = [score.length];
+             
+         for (let i = 0; i < score.length; i+=1) {
+             
+             let rankOf = scoreRanks.indexOf(score[i]);
+             
+             if ( rankOf == 0 ) {
+                 
+                 returnArr.splice(i,1,"Gold Medal");
+                 
+             } else if ( rankOf == 1 ) {
+                 
+                 returnArr.splice(i,1,"Silver Medal");
+                 
+             } else if ( rankOf == 2 ) {
+                 
+                 returnArr.splice(i,1,"Bronze Medal");
+                 
+             } else {
+                 
+                 rankOf += 1; // compensate for zero indexed array
+                 returnArr.splice(i,1,rankOf.toString());
+             }
+         }
+         return returnArr;
+     };
+    </code></pre></p>
+  
+    <p>This program taskes an integer array of unsorted scores and returns a sorted string array of each participants score and rank compared to the other scores. </p>
+  
+    </details></p>
 
-    async function logData() {
-      const response = await fetch("https://api.myip.com");
-      const jsonData = await response.json();
-      console.log(jsonData);
-      document.getElementByID
-    }
-
-  </code></pre></p>
-  </details></p>
 </details>
 
 <details>
