@@ -253,6 +253,74 @@ rl.question('What is your name? ', function(name) {
 </details>
 
 <details>
+  <summary>Calculator Example</summary>
+  <h2>Code</h2>
+  <p><pre><code>
+    // Get references to the input elements and the button
+    const number1Input = document.getElementById("number1");
+    const number2Input = document.getElementById("number2");
+    const addButton = document.getElementById("add");
+    const subtractButton = document.getElementById("subtract");
+    const resultElement = document.getElementById("result");
+
+    // Function to add two numbers and update the result element
+    function addNumbers() {
+      const number1 = Number(number1Input.value);
+      const number2 = Number(number2Input.value);
+      const result = number1 + number2;
+      resultElement.innerText = result;
+    }
+
+    // Function to subtract two numbers and update the result element
+    function subtractNumbers() {
+      const number1 = Number(number1Input.value);
+      const number2 = Number(number2Input.value);
+      const result = number1 - number2;
+      resultElement.innerText = result;
+    }
+
+    // Add event listeners to the buttons that call the appropriate function
+    addButton.addEventListener("click", addNumbers);
+    subtractButton.addEventListener("click", subtractNumbers);
+  </code></pre></p>
+</details>
+
+<details>
+  <summary>Image Slideshow Example</summary>
+  <h2>Code</h2>
+  <p><pre><code>
+    // Set the index of the currently displayed image
+    let currentImageIndex = 0;
+
+    // Get a reference to the slideshow container element
+    const slideshow = document.getElementById("slideshow");
+
+    // Get all the images in the slideshow
+    const images = slideshow.getElementsByTagName("img");
+
+    // Set the display style of all the images to "none" except for the first one
+    for (let i = 1; i < images.length; i++) {
+      images[i].style.display = "none";
+    }
+
+    // Function to change the displayed image
+    function changeImage() {
+      // Hide the current image
+      images[currentImageIndex].style.display = "none";
+
+      // Increment the index, looping back to 0 if it goes past the last image
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+
+      // Show the new image
+      images[currentImageIndex].style.display = "block";
+    }
+
+    // Call the changeImage function every 3 seconds to create a slideshow effect
+    setInterval(changeImage, 3000);
+  </code></pre></p>
+</details>
+
+<details>
   <! -- Prime Number Checker example dropdown -->
   <summary>Prime Number Checker Example</summary>
   <h2 id="PrimeNumberChecker">Code</h2>
