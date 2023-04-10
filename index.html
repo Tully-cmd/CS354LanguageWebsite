@@ -309,6 +309,40 @@ rl.question('What is your name? ', function(name) {
 </details>
 
 <details>
+  <summary>Calculator Example</summary>
+  <h2>Code</h2>
+  <p><pre><code>
+    // Get references to the input elements and the button
+    const number1Input = document.getElementById("number1");
+    const number2Input = document.getElementById("number2");
+    const addButton = document.getElementById("add");
+    const subtractButton = document.getElementById("subtract");
+    const resultElement = document.getElementById("result");
+
+    // Function to add two numbers and update the result element
+    function addNumbers() {
+      const number1 = Number(number1Input.value);
+      const number2 = Number(number2Input.value);
+      const result = number1 + number2;
+      resultElement.innerText = result;
+    }
+
+    // Function to subtract two numbers and update the result element
+    function subtractNumbers() {
+      const number1 = Number(number1Input.value);
+      const number2 = Number(number2Input.value);
+      const result = number1 - number2;
+      resultElement.innerText = result;
+    }
+
+    // Add event listeners to the buttons that call the appropriate function
+    addButton.addEventListener("click", addNumbers);
+    subtractButton.addEventListener("click", subtractNumbers);
+  </code></pre></p>
+</details>
+
+
+<details>
   <summary>Fetch Api Example</summary>
   <h2 id="FetchAPI">Code</h2>
   <script>
