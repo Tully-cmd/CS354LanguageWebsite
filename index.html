@@ -151,6 +151,13 @@
 </ul></p>
 </details>
 
+<details>
+  <summary>Build & Run Instructions</summary>
+  <p>A JavaScript file/script is interpreted when invoked by the HTML file it resides in.</p>
+  <p>JavaScript code can be inside it's own .js file and added to the HTML page within a script tag or, the JavaScript code can just be inside the script tag itself.</p>
+  <p>When JavaScript is detected while running a HTML file in your web browser, your browser's JavaScript engine/interpreter is ran on that code.</p>
+</details>
+
 <! -- code examples dropdown -->
 <details>
   <summary>Code Examples</summary>
@@ -272,98 +279,67 @@ rl.question('What is your name? ', function(name) {
   </details></p>
 </details>
 
-<! -- Image slideshow example -->
-<details>
-  <summary>Image Slideshow Example</summary>
-  <h2 id="ImageSlideshowExample">Code</h2>
-  <p><pre><code>
-    // Set the index of the currently displayed image
-    let currentImageIndex = 0;
+  <details>
+    <summary>Fetch Api Example</summary>
+    <h2 id="FetchAPI">Code</h2>
+    <p><pre><code>
+  
+      async function logData() {
+        const response = await fetch("https://api.myip.com");
+        const jsonData = await response.json();
+        console.log(jsonData);
+        document.getElementByID
+      }
+  
+    </code></pre></p>
+    </details></p>
+  
+  <details>
+    <summary>Relative Ranks</summary>
+    <h2 id="Ranks">Code</h2>
+    
+    <p><pre><code>
+  
+      /**
+      * @param {number[]} score
+      * @return {string[]}
+      */
+     var findRelativeRanks = function(score) {
+         
+         let scoreRanks = score.slice();
+         scoreRanks.sort((a,b)=>a-b).reverse();
+         let returnArr = [score.length];
+             
+         for (let i = 0; i < score.length; i+=1) {
+             
+             let rankOf = scoreRanks.indexOf(score[i]);
+             
+             if ( rankOf == 0 ) {
+                 
+                 returnArr.splice(i,1,"Gold Medal");
+                 
+             } else if ( rankOf == 1 ) {
+                 
+                 returnArr.splice(i,1,"Silver Medal");
+                 
+             } else if ( rankOf == 2 ) {
+                 
+                 returnArr.splice(i,1,"Bronze Medal");
+                 
+             } else {
+                 
+                 rankOf += 1; // compensate for zero indexed array
+                 returnArr.splice(i,1,rankOf.toString());
+             }
+         }
+         return returnArr;
+     };
+    </code></pre></p>
+  
+    <p>This program taskes an integer array of unsorted scores and returns a sorted string array of each participants score and rank compared to the other scores. </p>
+  
+    </details></p>
 
-    // Get a reference to the slideshow container element
-    const slideshow = document.getElementById("slideshow");
-
-    // Get all the images in the slideshow
-    const images = slideshow.getElementsByTagName("img");
-
-    // Set the display style of all the images to "none" except for the first one
-    for (let i = 1; i < images.length; i++) {
-      images[i].style.display = "none";
-    }
-
-    // Function to change the displayed image
-    function changeImage() {
-      // Hide the current image
-      images[currentImageIndex].style.display = "none";
-
-      // Increment the index, looping back to 0 if it goes past the last image
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-
-      // Show the new image
-      images[currentImageIndex].style.display = "block";
-    }
-
-    // Call the changeImage function every 3 seconds to create a slideshow effect
-    setInterval(changeImage, 3000);
-  </code></pre></p>
-</details>
-
-<details>
-  <summary>Calculator Example</summary>
-  <h2>Code</h2>
-  <p><pre><code>
-    // Get references to the input elements and the button
-    const number1Input = document.getElementById("number1");
-    const number2Input = document.getElementById("number2");
-    const addButton = document.getElementById("add");
-    const subtractButton = document.getElementById("subtract");
-    const resultElement = document.getElementById("result");
-
-    // Function to add two numbers and update the result element
-    function addNumbers() {
-      const number1 = Number(number1Input.value);
-      const number2 = Number(number2Input.value);
-      const result = number1 + number2;
-      resultElement.innerText = result;
-    }
-
-    // Function to subtract two numbers and update the result element
-    function subtractNumbers() {
-      const number1 = Number(number1Input.value);
-      const number2 = Number(number2Input.value);
-      const result = number1 - number2;
-      resultElement.innerText = result;
-    }
-
-    // Add event listeners to the buttons that call the appropriate function
-    addButton.addEventListener("click", addNumbers);
-    subtractButton.addEventListener("click", subtractNumbers);
-  </code></pre></p>
-</details>
-
-
-<details>
-  <summary>Fetch Api Example</summary>
-  <h2 id="FetchAPI">Code</h2>
-  <script>
-    async function logData() {
-      const response = await fetch("http://api.myip.com");
-      const jsonData = await response.json();
-      console.log(jsonData);
-      document.getElementById("textAPI").innerText = jsonData;
-    }
-  </script>
-  <p><pre><code>
-
-    async function logData() {
-      const response = await fetch("https://api.myip.com");
-      const jsonData = await response.json();
-      console.log(jsonData);
-      document.getElementByID
-    }
-
-  </code></pre></p>
-  </details></p>
 </details>
 
 <details>
