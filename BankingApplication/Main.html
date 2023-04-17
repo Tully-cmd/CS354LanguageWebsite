@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <script>
+
+    class Customer {
+        constructor(name) {
+            this.name = name;
+        }
+        toString() {
+            return this.name;
+        }
+    }
+
+    class Account {
+        constructor(number, customer, balance) {
+            this.number = number;
+            this.customer = customer;
+            this.balance = balance;
+        }
+
+        accrue(rate) {
+        }
+
+        getBalance() {
+            return this.balance;
+        }
+
+        deposit(amount) {
+            this.balance += amount;
+        }
+
+        withdraw(amount) {
+            this.balance -= amount;
+        }
+
+        toString() {
+            return this.number + ":" + this.customer + ":" + this.balance;
+        }
+    }
+
+    class CheckingAccount extends Account {
+        constructor(number, customer, balance) {
+            super(number,customer,balance);
+        }
+    }
+
+    class SavingAccount extends Account {
+        constructor(number, customer, balance) {
+            super(number,customer,balance);
+            this.interest = 0;
+        }
+
+        accrue(rate) {
+            this.interest = this.interest + (this.balance * rate);
+            this.balance = this.balance + (this.balance * rate);
+        }
+    }
+
+    acc = new Account(3, "name", 0);
+    console.log(acc.toString());
+
+    var custOne = new Customer("Tully");
+    console.log(custOne.toString);
+    var oneChecking = new CheckingAccount("1111",custOne,250);
+    console.log(oneChecking);
+    var oneSaving = new SavingAccount("1112",custOne,34);
+    console.log(oneSaving);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
