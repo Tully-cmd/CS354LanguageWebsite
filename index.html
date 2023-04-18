@@ -126,8 +126,8 @@
   <h2 id="intro-to-javascript">JavaScript History</h2>
   <p>
     <p>The original name of JavaScript was Mocha then LiveScript, JavaScript was first developed by Brendan Eich in 1995. Eich invented JavaScript at the company Netscape in an era of the mass adoption of the internet where websites were in their infancy and only showed static content on the page loading. JavaScript was intended to be a programming language that has all the common tools a web developer uses and to respond to events that happen in a web page.</p>
-    <p>JavaScript was released in 1995 along with the Netscape 2 browser. Netscape is the company that developed the first widely used web browser. In late 1996, Netscape submitted a request to Ecma International to use as the first standard all vendors of web browsers. This eventually led to the first ECMAScript specification adopted in 1997.</p>
-    <p>With the rise of Microsoft’s Internet Explorer in the late 1990s, client-side programming with JavaScript became stagnant. In 2005 JavaScript would have a revival, now in the hands of the company Mozilla that developed the web browser Firefox came an era in advancement of open source developer libraries, the most notable out of all of these being jQuery. JavaScript equipped with these libraries that used a new technology called Ajax became the backbone of loading content for web applications, developers could now avoid loading content through full page reloads. In 2008, the release of the V8 JavaScript engine along with the Google Chrome web browser featured a just in time (JIT) compiler that uses all the capabilities of JavaScript. This forced the other web browser vendors to have to overhaul their products to include JIT compilation.</p>
+    <p>JavaScript was released in 1996 along with the Netscape 2 browser. Netscape is the company that developed the first widely used web browser. In late 1996, Netscape submitted a request to Ecma International to use as the first standard all vendors of web browsers. This eventually led to the first ECMAScript specification adopted in 1997.</p>
+    <p>With the rise of Microsoft’s Internet Explorer in the late 1990s, client-side programming with JavaScript became stagnant. In 2005 JavaScript would have a revival, now in the hands of the company Mozilla that developed the web browser Firefox came an era in advancement of open source developer libraries, the most notable out of all of these being jQuery. JavaScript equipped with these libraries that used a new technology called Ajax became the backbone of loading content for web applications, developers could now avoid loading content through full page reloads. In 2008, the release of the V8 JavaScript engine along with the Google Chrome web browser featured a just in time (JIT) compilation that uses all the capabilities of JavaScript. This forced the other web browser vendors to have to overhaul their products to include JIT compilation.</p>
   </p>
 </details>
 
@@ -247,7 +247,7 @@ rl.question('What is your name? ', function(name) {
   <! -- Spelling fix example dropdown -->
   <summary> Spelling fix Example</summary>
   <h2 id="jg">Code</h2>
-  <h4 id="jg"> The below code connects with a HTML file and it will suggest and generate words 
+  <h4 id="jg"> The below code connects with a HTML file and it will suggest and generate words
     that the users typed in might want to use but spelled it incorrectly </h4>
 
     <h5 id="script"> script.js file: </h5>
@@ -255,15 +255,15 @@ rl.question('What is your name? ', function(name) {
       window.onload = function() {
         document.getElementById("submitBtn").addEventListener('click', myFunction)
     }
-    
+
     function myFunction() {
         var input = document.getElementById("searchTerm").value;
-    
+
         req = new XMLHttpRequest;
-    
+
         req.open("GET", `https://cast.boisestate.edu/test/splchk.php?word=${input}&max=5`, true);
         req.send();
-    
+
         req.onreadystatechange = function() {
             if(req.readyState == 4 && req.status == 200){
                 var result = JSON.parse(req.responseText);
@@ -271,10 +271,10 @@ rl.question('What is your name? ', function(name) {
                 document.getElementById("results").innerHTML = suggestions.map(item => `&lt;li&gt ${item} &lt;/li&gt;`).join('');
             }
         }
-    };    
+    };
     </code></pre></p>
-    
-    <h5 id="html"> From the above Javascript code, the HTML file will display this: </h5> 
+
+    <h5 id="html"> From the above Javascript code, the HTML file will display this: </h5>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -562,12 +562,98 @@ rl.question('What is your name? ', function(name) {
     <li><a href="https://math.chapman.edu/~jipsen/js/">Online Javascript interpreter</a></li>
   </ul></p>
 </details>
+<a href="data:text/html;charset=utf-8,<!DOCTYPE html>
+<html>
+<head>
+  <h1>Bank</h1>
+  <p>Balance: $<span id='balance'>0.00</span> (<span id='interest-rate'>10.00%</span> interest rate)</p>
+  <button onclick='deposit()'>Deposit</button>
+  <button onclick='withdraw()'>Withdraw</button>
+  <button onclick='adjustInterestRate()'>Adjust Interest Rate</button>
 
-<details>
-  <summary>Complex Program LW2</summary>
-  <h2>Banking Application</h2>
-  <a href="./Main.html">Banking Application</a>
-</details>
+  <script>
+ // Set initial balance and interest rate
+var balance = 0;
+var interestRate = 0.1;
 
+// Deposit function
+function deposit() {
+  // Get amount from user input
+  var amount = parseFloat(prompt('Enter amount to deposit:'));
+
+  // Check if amount is valid
+  if (isNaN(amount) || amount <= 0) {
+    alert('Invalid amount!');
+  } else {
+    // Add amount to balance and update display
+    balance += amount;
+    updateBalance();
+    // Display success message
+    displayMessage('success', 'Deposit successful! New balance is $' + balance.toFixed(2));
+  }
+}
+
+// Withdraw function
+function withdraw() {
+  // Get amount from user input
+  var amount = parseFloat(prompt('Enter amount to withdraw:'));
+
+  // Check if amount is valid and sufficient funds
+  if (isNaN(amount) || amount <= 0) {
+    alert('Invalid amount!');
+  } else if (amount > balance) {
+    // Display error message if insufficient funds
+    displayMessage('error', 'Insufficient balance!');
+  } else {
+    // Subtract amount from balance and update display
+    balance -= amount;
+    updateBalance();
+    // Display success message
+    displayMessage('success', 'Withdrawal successful! New balance is $' + balance.toFixed(2));
+  }
+}
+
+// Update balance function (adds interest and updates display)
+function updateBalance() {
+  balance += balance * interestRate;
+  document.getElementById('balance').textContent = balance.toFixed(2);
+  document.getElementById('interest-rate').textContent = (interestRate * 100).toFixed(2) + '%';
+}
+
+// Display message function (displays a message for a few seconds and then removes it)
+function displayMessage(className, message) {
+  var messageElement = document.createElement('p');
+  messageElement.textContent = message;
+  messageElement.className = className;
+  document.body.appendChild(messageElement);
+  setTimeout(function() {
+    document.body.removeChild(messageElement);
+  }, 3000);
+}
+
+// Adjust interest rate function
+function adjustInterestRate() {
+  // Get new interest rate from user input
+  interestRate = parseFloat(prompt('Enter new interest rate as a decimal:'));
+
+  // Check if interest rate is valid
+  if (isNaN(interestRate) || interestRate < 0) {
+    alert('Invalid interest rate!');
+  } else {
+    // Display success message with updated interest rate
+    displayMessage('success', 'Interest rate updated to ' + (interestRate * 100).toFixed(2) + '%');
+  }
+}
+
+// Call updateBalance function every 5 seconds (to simulate interest accumulation)
+setInterval(function() {
+  updateBalance();
+}, 5000);
+
+  </script>
+</head>
+<body>
+</body>
+</html>" download="ComplexJavaScript.html">Download ComplexJavaScript Bank app</a>
 </body>
 </html>
