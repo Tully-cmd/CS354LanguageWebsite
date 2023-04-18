@@ -59,6 +59,40 @@
         }
     }
 
+    class Bank {
+    constructor() {
+        this.accounts = new Set();
+    }
+    
+    add(account) {
+        this.accounts.add(account);
+    }
+    
+    accrue(rate) {
+        for (let account of this.accounts) {
+            account.accrue(rate);
+        }
+    }
+    
+    toString() {
+        let result = "";
+        for (let account of this.accounts) {
+            result += account + "\n";
+        }
+        return result;
+    }
+    
+    static main() {
+        const bank = new Bank();
+        const c = new Customer("Ann");
+        bank.add(new CheckingAccount("01001", c, 100.00));
+        bank.add(new SavingAccount("01002", c, 200.00));
+        bank.accrue(0.02);
+        console.log(bank.toString());
+    }
+}
+
+
     acc = new Account(3, "name", 0);
     console.log(acc.toString());
 
