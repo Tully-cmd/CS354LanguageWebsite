@@ -3,6 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
+
+    <p>
+        <pre><code>
+            class Customer {
+                constructor(name) {
+                    this.name = name;
+                }
+                toString() {
+                    return this.name;
+                }
+            }
+        
+            class Account {
+                constructor(number, customer, balance) {
+                    this.number = number;
+                    this.customer = customer;
+                    this.balance = balance;
+                }
+        
+                accrue(rate) {
+                }
+        
+                getBalance() {
+                    return this.balance;
+                }
+        
+                deposit(amount) {
+                    this.balance += amount;
+                }
+        
+                withdraw(amount) {
+                    this.balance -= amount;
+                }
+        
+                toString() {
+                    return this.number + ":" + this.customer + ":" + this.balance;
+                }
+            }
+        
+            class CheckingAccount extends Account {
+                constructor(number, customer, balance) {
+                    super(number,customer,balance);
+                }
+            }
+        
+            class SavingAccount extends Account {
+                constructor(number, customer, balance) {
+                    super(number,customer,balance);
+                    this.interest = 0;
+                }
+        
+                accrue(rate) {
+                    this.interest = this.interest + (this.balance * rate);
+                    this.balance = this.balance + (this.balance * rate);
+                }
+            }
+        
+            class Bank {
+            constructor() {
+                this.accounts = new Set();
+            }
+            
+            add(account) {
+                this.accounts.add(account);
+            }
+            
+            accrue(rate) {
+                for (let account of this.accounts) {
+                    account.accrue(rate);
+                }
+            }
+            
+            toString() {
+                let result = "";
+                for (let account of this.accounts) {
+                    result += account + "\n";
+                }
+                return result;
+            }
+        </pre></code>
+    </p>
+
+    <p>
+        <pre><code>
+            const bank = new Bank();
+            const c = new Customer("Ann");
+            bank.add(new CheckingAccount("01001", c, 100.00));
+            bank.add(new SavingAccount("01002", c, 200.00));
+            bank.accrue(0.02);
+            acc = new Account(3, "name", 0);
+        </pre></code>
+    </p>
+
+    <h1>bank.toString():</h1>
+    <p id="Output1"></p>
+
+    <h1>acc.toString():</h1>
+    <p id="Output2"></p>
+
     <script>
 
     class Customer {
@@ -82,26 +181,24 @@
         return result;
     }
     
-    static main() {
-        const bank = new Bank();
-        const c = new Customer("Ann");
-        bank.add(new CheckingAccount("01001", c, 100.00));
-        bank.add(new SavingAccount("01002", c, 200.00));
-        bank.accrue(0.02);
-        console.log(bank.toString());
-    }
 }
 
-
+    const bank = new Bank();
+    const c = new Customer("Ann");
+    bank.add(new CheckingAccount("01001", c, 100.00));
+    bank.add(new SavingAccount("01002", c, 200.00));
+    bank.accrue(0.02);
     acc = new Account(3, "name", 0);
-    console.log(acc.toString());
 
-    var custOne = new Customer("Tully");
-    console.log(custOne);
-    var oneChecking = new CheckingAccount("1111",custOne,250);
-    console.log(oneChecking);
-    var oneSaving = new SavingAccount("1112",custOne,34);
-    console.log(oneSaving);
+    document.getElementById("Output1").innerHTML = bank.toString();
+    document.getElementById("Output2").innerHTML = acc.toString();
+
+    // var custOne = new Customer("Tully");
+    // console.log(custOne);
+    // var oneChecking = new CheckingAccount("1111",custOne,250);
+    // console.log(oneChecking);
+    // var oneSaving = new SavingAccount("1112",custOne,34);
+    // console.log(oneSaving);
 
     </script>
 </head>
