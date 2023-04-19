@@ -6,6 +6,35 @@
 </head>
 <body>
 <style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    font-size: 18px;
+  }
+  button {
+    font-size: 16px;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0062cc;
+  }
+  .success {
+    color: green;
+  }
+  .error {
+    color: red;
+  }
   h1 {
     font-size: 36px;
     font-weight: bold;
@@ -101,11 +130,12 @@
 <! -- Intro to javascript dropdown -->
 <details>
   <summary>Introduction to JavaScript</summary>
-  <h2 id="intro-to-javascript">JavaScript Introduction</h2>
+  <h2 id="intro-to-javascript.">JavaScript Introduction</h2>
   <p><p>JavaScript is a programming language that was created in 1995 by Brendan Eich while he was working at Netscape Communications Corporation. Originally called Mocha, then renamed to LiveScript, it was finally released as JavaScript in 1995, around the same time as the release of Netscape Navigator 2.0.</p>
   <p>The language was designed to be used in web browsers to add interactivity to static web pages, allowing developers to create dynamic content and respond to user interactions. Over time, JavaScript has evolved to become a versatile language that can be used not only in web browsers, but also on servers, mobile devices, and even in desktop applications.</p>
   <p>Today, JavaScript is one of the most popular programming languages in the world, and it is supported by all modern web browsers. It is used to create complex web applications, single-page applications, and mobile applications. JavaScript is also widely used in back-end development with frameworks like Node.js.</p>
   <h2>What is JavaScript?</h2>
+  <p>JavaScript is not a compiled language it’s an interpreted language.<p>
   <p>JavaScript is a high-level, dynamic, and versatile programming language used to create interactive and dynamic websites. It was originally created to be used in web browsers, but today it is also used on servers, mobile devices, and in desktop applications.</p>
   <p>JavaScript is a client-side scripting language, which means that it runs in the browser on the client-side of a web application. It is often used to create interactive features like form validation, animations, and dynamic content updates.</p>
   <p>JavaScript is also an object-oriented language, which means that it allows developers to create and manipulate objects, which can contain properties and methods. It has a large number of built-in objects and functions that make it easier for developers to perform common tasks.</p>
@@ -123,7 +153,7 @@
 <! -- History dropdown -->
 <details>
   <summary>JavaScript History (continued)</summary>
-  <h2 id="intro-to-javascript">JavaScript History</h2>
+  <h2 id="History">JavaScript History</h2>
   <p>
     <p>The original name of JavaScript was Mocha then LiveScript, JavaScript was first developed by Brendan Eich in 1995. Eich invented JavaScript at the company Netscape in an era of the mass adoption of the internet where websites were in their infancy and only showed static content on the page loading. JavaScript was intended to be a programming language that has all the common tools a web developer uses and to respond to events that happen in a web page.</p>
     <p>JavaScript was released in 1996 along with the Netscape 2 browser. Netscape is the company that developed the first widely used web browser. In late 1996, Netscape submitted a request to Ecma International to use as the first standard all vendors of web browsers. This eventually led to the first ECMAScript specification adopted in 1997.</p>
@@ -146,7 +176,6 @@
       <li>Verify that Node.js is installed correctly by opening a command prompt (on Windows) or terminal (on Mac or Linux) and typing "node -v" (without the quotes) and pressing Enter. You should see the version number of Node.js printed to the console.</li>
     </ol>
   </li>
-  <li>Once Node.js is installed on your computer, you can create and run JavaScript programs using a text editor and the Node.js runtime environment. You can also use Node.js to install and manage packages and libraries for your JavaScript projects using the Node Package Manager (NPM).</li>
 <h2>Available Translators</h2>
   <p>JavaScript is a client-side language, which means it runs on the browser. Therefore, you don't need to install any special software or compilers to run JavaScript code. You just need a web browser like Chrome, Firefox, or Safari. However, if you want to develop more complex JavaScript applications, you may need a text editor like Visual Studio Code or Sublime Text. Both of these editors have built-in JavaScript support, making it easy to write, test, and debug your code.</p>
 </ul></p>
@@ -157,6 +186,15 @@
   <p>A JavaScript file/script is interpreted when invoked by the HTML file it resides in.</p>
   <p>JavaScript code can be inside it's own .js file and added to the HTML page within a script tag or, the JavaScript code can just be inside the script tag itself.</p>
   <p>When JavaScript is detected while running a HTML file in your web browser, your browser's JavaScript engine/interpreter is ran on that code.</p>
+  <summary>Terminal run instructions</summary>
+  <li>Once Node.js is installed on your computer, you can create and run JavaScript programs using a text editor and the Node.js runtime environment. You can also use Node.js to install and manage packages and libraries for your JavaScript projects using the Node Package Manager (NPM).</li>
+  <li>Step 1: Save your javascript with . js extension.<li>
+  <li> Step 2: Open the command prompt.<li>
+  <li>Step 3: Locate your path where the . js file is saved.<li>
+  <li> Step 4: To compile the .js file we have to write.<li>
+  <li> Node <Filename>.js. <li>
+  <li> Step 5: Press the Enter key.<li>
+  <li>Output:<li>
 </details>
 
 <details>
@@ -248,7 +286,7 @@ rl.question('What is your name? ', function(name) {
   <! -- Spelling fix example dropdown -->
   <summary> Spelling fix Example</summary>
   <h2 id="jg">Code</h2>
-  <h4 id="jg"> The below code connects with a HTML file and it will suggest and generate words
+  <h4 id="j"> The below code connects with a HTML file and it will suggest and generate words
     that the users typed in might want to use but spelled it incorrectly </h4>
 
     <h5 id="script"> script.js file: </h5>
@@ -570,10 +608,10 @@ rl.question('What is your name? ', function(name) {
     <li><a href="https://math.chapman.edu/~jipsen/js/">Online Javascript interpreter</a></li>
   </ul></p>
 </details>
-<a href="data:text/html;charset=utf-8,<!DOCTYPE html>
+<a href="data:text/html;charset=utf-8,<!DOCTYPE html
 <html>
 <head>
-  <h1>Bank</h1>
+  <h1>Finches Bank</h1>
   <p>Balance: $<span id='balance'>0.00</span> (<span id='interest-rate'>10.00%</span> interest rate)</p>
   <button onclick='deposit()'>Deposit</button>
   <button onclick='withdraw()'>Withdraw</button>
